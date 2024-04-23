@@ -10,7 +10,9 @@
 - [qtile](https://qtile.org/)
 - [qtile-extras](https://qtile-extras.readthedocs.io/en/stable/index.html)
 
->A bash script is present to launch the necessary configurations and software when my Archlinux machine start
+<br />
+
+>A bash script is present to launch the necessary configurations and software when my Archlinux  start
 
 <br />
 
