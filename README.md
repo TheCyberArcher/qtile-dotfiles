@@ -9,7 +9,8 @@
 - [psutils](https://psutil.readthedocs.io/en/latest/)
 - [qtile](https://qtile.org/)
 - [qtile-extras](https://qtile-extras.readthedocs.io/en/stable/index.html)
-
+- [cava](https://aur.archlinux.org/packages/cava)
+  
 <br />
 
 >A bash script is present to launch the necessary configurations and software when my Archlinux  start
