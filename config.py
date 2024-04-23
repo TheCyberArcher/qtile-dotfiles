@@ -200,12 +200,12 @@ screens = [
                     align="left",
                     ),
                 widget.Image(
-                    filename="/home/alerion/Images/kawaii.png", 
+                    filename="/home/alerion/Images/decoration1.png", 
                     margin=3,
                     align="left",
                     ),
                 widget.Image(
-                   filename="/home/alerion/Images/arch.png",
+                   filename="/home/alerion/Images/decoration2.png",
                    margin=5,
                    align="left",
                     ),
@@ -288,7 +288,7 @@ screens = [
                     align="left",
                     ),
                  widget.LaunchBar(
-                    default_icon="/home/alerion/Images/girl1.png",
+                    default_icon="/home/alerion/Images/decoration3.png",
                     icon_size=70,
                     padding=5,
                     progs=[ ('terminal', 'alacritty -e yay -Syyuu', 'Update')],
@@ -354,7 +354,7 @@ screens = [
                     align="left",
                     ),
                     widget.LaunchBar(
-                    default_icon="/home/alerion/Images/kawaii3.png",
+                    default_icon="/home/alerion/Images/decoration4.png",
                     icon_size=60,
                     margin=10,
                     progs=[ ('terminal', 'alacritty --hold -e neofetch', 'Update')],
