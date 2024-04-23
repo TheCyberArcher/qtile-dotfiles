@@ -375,7 +375,7 @@ screens = [
 
           # Desktop Wallpaper :
 
-        wallpaper="/home/alerion/Images/animeumbrella.jpg",
+        wallpaper="/home/alerion/Images/wallpaper.jpg",
         wallpaper_mode = 'fill'
     ),
 ]
