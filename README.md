@@ -14,8 +14,6 @@
 
 >A bash script is present to launch the necessary configurations and software when my Archlinux  start
 
-<br />
-
 ---
 
 [![screenshot-github-qtile-3.png](https://i.postimg.cc/zGwtwH1x/screenshot-github-qtile-3.png)](https://postimg.cc/2167r6yW) [![screenshot-github-qtile-4.png](https://i.postimg.cc/HLB6RGn5/screenshot-github-qtile-4.png)](https://postimg.cc/bGS0SBQN)
