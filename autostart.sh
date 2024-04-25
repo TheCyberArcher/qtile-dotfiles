@@ -4,7 +4,7 @@
 #System
 
 xrandr --output DP-2 --mode 3440x1440 --rate 144
-picom &
+picom
 lxpolkit &
 nm-applet &
 exec /usr/lib/geoclue-2.0/demos/agent &
