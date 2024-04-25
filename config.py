@@ -7,13 +7,8 @@ from qtile_extras import widget as extrawidgets
 import subprocess
 import os
 
-# MASTER KEY DEFINITION : 
-
 mod = "mod4"
 terminal = guess_terminal()
-
-
-
 
 #AUTOSTART:
 
@@ -21,11 +16,6 @@ terminal = guess_terminal()
 def autostart():
      home = os.path.expanduser('~/.config/qtile/autostart.sh')
      subprocess.Popen([home])
-
-
-
-
-# KEYBOARD SHORTCUTS :
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -35,23 +25,15 @@ keys = [
     Key([mod], "RIGHT", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "DOWN", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "UP", lazy.layout.up(), desc="Move focus up"),
-
     Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
-
     # Move windows between left/right columns or move up/down in current stack.
-
-
     # Moving out of range in Columns layout will create new column.
-
     Key([mod, "shift"], "LEFT", lazy.layout.shuffle_left(), desc="Move window to the left"),
     Key([mod, "shift"], "RIGHT", lazy.layout.shuffle_right(), desc="Move window to the right"),
     Key([mod, "shift"], "DOWN", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([mod, "shift"], "UP", lazy.layout.shuffle_up(), desc="Move window up"),
-
     # Grow windows. If current window is on the edge of screen and direction
-
     # will be to screen edge - window would shrink.
-
     Key([mod, "control"], "LEFT", lazy.layout.grow_left(), desc="Grow window to the left"),
     Key([mod, "control"], "RIGHT", lazy.layout.grow_right(), desc="Grow window to the right"),
     Key([mod, "control"], "DOWN", lazy.layout.grow_down(), desc="Grow window down"),
@@ -65,7 +47,6 @@ keys = [
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
-
     Key(
         [mod, "shift"],
         "Return",
@@ -98,7 +79,6 @@ keys = [
 # Add key bindings to switch VTs in Wayland.
 # We can't check qtile.core.name in default config as it is loaded before qtile is started
 # We therefore defer the check until the key binding is run by using .when(func=...)
-
 for vt in range(1, 8):
     keys.append(
         Key(
@@ -131,31 +111,18 @@ for i in groups:
             ),
         ]
     )
-  
-
-# LAYOUT, CUTTING BEHAVIOR :
-
 
 layouts = [
     layout.Columns(border_focus=["#8A2BE2", "000000", "#8A2BE2", "000000"], border_width=6, num_columns=3, margin=10),
     layout.Max(),
     ]
 
-
-# DEFAULT WIDGET VISUAL CONFIG :
-
-
 widget_defaults = dict(
     font="sans bold",
     fontsize=16,
     padding=3,
 )
-
 extension_defaults = widget_defaults.copy()
-
-
-
-# SCREEN AND TOP BAR : 
 
 screens = [
     Screen(
@@ -200,12 +167,12 @@ screens = [
                     align="left",
                     ),
                 widget.Image(
-                    filename="/home/alerion/Images/decoration1.png", 
+                    filename="~/.config/qtile/assets/decoration1.png", 
                     margin=3,
                     align="left",
                     ),
                 widget.Image(
-                   filename="/home/alerion/Images/decoration2.png",
+                   filename="~/.config/qtile/assets/decoration2.png",
                    margin=5,
                    align="left",
                     ),
@@ -259,24 +226,33 @@ screens = [
                 widget.Spacer(
                     align="center",
                     ),
+                widget.LaunchBar(
+                    default_icon="~/.config/qtile/assets/decoration3.png",
+                    icon_size=70,
+                    progs=[ ('terminal', 'alacritty -e yay -Syyuu', 'Update')],
+                    text='any update ?',
+                ),
                 widget.Spacer(
-                    length = 10,
+                    length = 15,
                     align="left",
                     ),
                 extrawidgets.Mpris2(
                     foreground="ffffff",
-                    stopped_text="Awachimameru kudekunense !",
-                    paused_text="C'est en pause !",
-                    playing_text="En train d'écouter : " '{track}',
+                    stopped_text="Ohhh lance la musique !",
+                    paused_text="Pourquoi tu mets pause ?",
+                    playing_text='{track}',
                     scroll_repeat=True,
                     markup=True,
+                    scroll=True,
+                    scroll_chars=40,
+                    max_chars=50,
                     align="left",
                     font="sans bold",
                     fontsize=13,
                     border_width=2,
                 ),
                 widget.Spacer(
-                    length = 10,
+                    length = 15,
                     align="left",
                     ),
                 widget.Sep(
@@ -287,28 +263,37 @@ screens = [
                     length = 15,
                     align="left",
                     ),
-                 widget.LaunchBar(
-                    default_icon="/home/alerion/Images/decoration3.png",
-                    icon_size=70,
-                    padding=5,
-                    progs=[ ('terminal', 'alacritty -e yay -Syyuu', 'Update')],
+                widget.CPU(
+                foreground='#f984ef',
+                fontsize="14",
                 ),
                 widget.Spacer(
                     length = 15,
                     align="left",
                     ),
-                widget.CPU(
-                foreground='#ffffff',
-                fontsize="14",
+                widget.CPUGraph(
+                    border_color='#8a2be280',
+                    border_width=2,
+                    core="all",
+                    graph_color='#f984ef',
                 ),
+                widget.Spacer(
+                    length = 15,
+                    align="left",
+                    ),
                 widget.Memory(
-                foreground='#ffffff',
+                foreground='#f984ef',
                 fontsize="14",
                 ),
                 widget.Spacer(
-                    length = 30,
+                    length = 15,
                     align="left",
                     ),
+                widget.MemoryGraph(
+                    border_color='#8a2be280',
+                    border_width=2,
+                    graph_color='#f984ef',
+                ),
                 widget.Spacer(
                 length = 20,
                 align="left",
@@ -338,13 +323,13 @@ screens = [
                    align="left",
                    ),
                 widget.LaunchBar(
-                    default_icon="/home/alerion/Images/reboot.png",
+                    default_icon="~/.config/qtile/assets/reboot.png",
                     icon_size=40,
                     padding=5,
                     progs=[('terminal', 'reboot', 'reboot the computer'),],
                 ),
                 widget.LaunchBar(
-                    default_icon="/home/alerion/Images/shutdown.png",
+                    default_icon="~/.config/qtile/assets/shutdown.png",
                     icon_size=40,
                     padding=5,
                     progs=[ ('terminal', 'shutdown 0', 'Shutdown the computer')],
@@ -353,32 +338,23 @@ screens = [
                     length = 15,
                     align="left",
                     ),
-                    widget.LaunchBar(
-                    default_icon="/home/alerion/Images/decoration4.png",
-                    icon_size=60,
-                    margin=10,
-                    progs=[ ('terminal', 'alacritty --hold -e neofetch', 'Update')],
-                ),
                 widget.Spacer(
-                    length = 10,
+                    length = 20,
                     align="left",
                     ),
                 
             ],
-
-            # Top bar size + config : 
-          
             40,
             margin = [2, 10, 0, 10],
+
             background="#00000099",
         ),
 
-          # Desktop Wallpaper :
-
-        wallpaper="/home/alerion/Images/wallpaper.jpg",
+        wallpaper="~/.config/qtile/assets/wallpaper.jpg",
         wallpaper_mode = 'fill'
     ),
 ]
+
 
 
 
@@ -412,9 +388,6 @@ floating_layout = layout.Floating(
         Match(title="pinentry"),  # GPG key password entry
     ]
 )
-
-# OTHER CONFIG : 
-
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
@@ -422,8 +395,6 @@ reconfigure_screens = True
 auto_minimize = True
 
 # When using the Wayland backend, this can be used to configure input devices.
-
 wl_input_rules = None
 
-wmname = "LG3D"
-
+wmname = "qtile"
