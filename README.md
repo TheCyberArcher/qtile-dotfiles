@@ -10,6 +10,7 @@
 - [qtile](https://qtile.org/)
 - [qtile-extras](https://qtile-extras.readthedocs.io/en/stable/index.html)
 - [cava](https://aur.archlinux.org/packages/cava)
+- [dbus-next](https://archlinux.org/packages/extra/any/python-dbus-next/)
   
 <br />
 
