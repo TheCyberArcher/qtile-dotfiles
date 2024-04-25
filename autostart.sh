@@ -1,20 +1,23 @@
 #!/bin/sh
-#Application Startup Script - Qtile
+#Application Startup Script - Qtile 
 
-#Screen :
+#System
 
 xrandr --output DP-2 --mode 3440x1440 --rate 144
+picom &
+lxpolkit &
+nm-applet &
+exec /usr/lib/geoclue-2.0/demos/agent &
 
-sleep 2
+#applications :
 
-#Picom decoration
+corectrl &
+protonvpn-app &
+discord --start-minimized &
+flameshot &
+redshift-gtk &
+signal-desktop -- %u --use-tray-icon --start-in-tray --no-sandbox %U &
 
-picom --animations -b
+#Flatpak :
 
-#Desktop Apps with dex :
-
-dex --autostart
-
-#Manual Launch :
-
-corectrl
+flatpak run --branch=stable --arch=x86_64 --command=whatsapp-desktop-linux io.github.mimbrero.WhatsAppDesktop --start-hidden &
